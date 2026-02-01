@@ -1,0 +1,171 @@
+// Modern Choose Page Styles
+
+.choose-page {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    background: var(--primary-color);
+    background-image:
+        radial-gradient(ellipse at 20% 20%, rgba(102, 126, 234, 0.08) 0%, transparent 50%),
+        radial-gradient(ellipse at 80% 80%, rgba(118, 75, 162, 0.08) 0%, transparent 50%);
+    padding: 120px 0 80px;
+
+    &__container {
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 0 24px;
+        width: 100%;
+    }
+
+    &__header {
+        text-align: center;
+        margin-bottom: 60px;
+    }
+
+    &__badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 8px 16px;
+        background: rgba(102, 126, 234, 0.1);
+        border: 1px solid rgba(102, 126, 234, 0.2);
+        border-radius: 50px;
+        font-size: 0.9rem;
+        font-weight: 500;
+        color: var(--secondary-color);
+        margin-bottom: 24px;
+
+        &-icon {
+            font-size: 1.1rem;
+        }
+    }
+
+    &__title {
+        font-size: clamp(2rem, 4vw, 3rem);
+        font-weight: 800;
+        color: var(--text-primary);
+        line-height: 1.2;
+        letter-spacing: -0.02em;
+        margin-bottom: 20px;
+
+        .gradient-text {
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+    }
+
+    &__subtitle {
+        font-size: 1.1rem;
+        color: var(--text-secondary);
+        max-width: 550px;
+        margin: 0 auto;
+        line-height: 1.7;
+    }
+
+    &__cards {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 24px;
+
+        @media screen and (max-width: 768px) {
+            grid-template-columns: 1fr;
+        }
+    }
+}
+
+.choose-card {
+    display: block;
+    background: white;
+    border: 2px solid var(--border-color);
+    border-radius: 24px;
+    padding: 32px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+
+    &:hover {
+        border-color: var(--secondary-color);
+        transform: translateY(-5px);
+        box-shadow: var(--shadow-xl);
+
+        .choose-card__icon {
+            background: var(--gradient-primary);
+            color: white;
+        }
+
+        .choose-card__arrow {
+            opacity: 1;
+            transform: translateX(0);
+        }
+    }
+
+    &--secondary {
+        &:hover {
+            .choose-card__icon {
+                background: linear-gradient(135deg, #f5576c 0%, #f093fb 100%);
+            }
+        }
+    }
+
+    &__icon {
+        width: 70px;
+        height: 70px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: rgba(102, 126, 234, 0.1);
+        border-radius: 18px;
+        color: var(--secondary-color);
+        margin-bottom: 24px;
+        transition: all 0.3s ease;
+    }
+
+    &__title {
+        font-size: 1.4rem;
+        font-weight: 700;
+        color: var(--text-primary);
+        margin-bottom: 12px;
+    }
+
+    &__description {
+        font-size: 1rem;
+        color: var(--text-secondary);
+        line-height: 1.6;
+        margin-bottom: 20px;
+    }
+
+    &__tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+
+        span {
+            padding: 6px 12px;
+            background: var(--primary-color);
+            border-radius: 8px;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+    }
+
+    &__arrow {
+        position: absolute;
+        top: 32px;
+        right: 32px;
+        width: 40px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: var(--primary-color);
+        border-radius: 12px;
+        color: var(--secondary-color);
+        opacity: 0;
+        transform: translateX(-10px);
+        transition: all 0.3s ease;
+    }
+}
